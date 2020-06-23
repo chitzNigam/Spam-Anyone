@@ -16,4 +16,4 @@ It is a command line tool.
 -Follow the instructions on command line/terminal
 -A browser will open. Login to your account. In the case of whatsapp, scan the QR code.
 -Navigate to the chat you want to spam on.
--Your automated spam will not start.
+-Your automated spam will now start.
