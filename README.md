@@ -4,7 +4,9 @@ A tool where you can spam anyone with any text on chat.
 *Feature for Facebook is still pending*
 
 Requirements-
+
 Windows: Chrome version 84, python3
+*In case you have a different chrome version. Then replace the file 'chromedriver.exe' in Resource folder from https://chromedriver.chromium.org/downloads.
 Linux: Firefox, python3
 
 How to Use- 
