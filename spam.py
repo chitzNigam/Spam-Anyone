@@ -7,7 +7,7 @@ opr_sys = platform.system()
 
 def initWebdriver():
     driver = None
-    if opr_sys == 'Windows': driver = webdriver.Firefox(executable_path=r"./Resource/chromedriver.exe")
+    if opr_sys == 'Windows': driver = webdriver.Chrome(executable_path=r"./Resource/chromedriver.exe")
     if opr_sys == 'Linux': driver = webdriver.Firefox(executable_path=r"./Resource/geckodriver")
     driver.maximize_window()
     driver.switch_to_default_content
@@ -25,6 +25,15 @@ def openPageFromUrl(driver, url):
 def openPageInstagram(driver):
     try:
         driver.get("https://www.instagram.com")
+        print("Page opened")
+    except Exception:
+        print("Page failed to open. Type the new URL of your page")
+        newUrl = str(input())
+        openPageFromUrl(driver,newUrl)
+
+def openPageFacebook(driver):
+    try:
+        driver.get("https://www.facebook.com")
         print("Page opened")
     except Exception:
         print("Page failed to open. Type the new URL of your page")
@@ -61,6 +70,18 @@ def findTheFieldInstagram(driver):
     except Exception:
         return None
 
+def findTheFieldFacebook(driver):
+    try:
+        textArea = driver.find_element_by_css_selector(".iko8p5ub > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1) > br:nth-child(1)")
+        return textArea
+    except Exception:
+        try:
+            textArea = driver.find_element_by_css_selector("._1mf > span:nth-child(1) > br:nth-child(1)")
+            return textArea
+        except Exception:
+            return None
+        return None
+
 def findTheFieldWhatsapp(driver):
     try:
         textArea = driver.find_element_by_xpath("/html/body/div[1]/div/div/div[4]/div/footer/div[1]/div[2]/div/div[2]")
@@ -72,23 +93,34 @@ def automateSpam(listObj, types):
 
     driver = initWebdriver()
     if types == 'W' or types == 'w': openPageWhatsapp(driver)
-    if types == 'I' or types == 'i': openPageInstagram(driver)
-
+    elif types == 'I' or types == 'i': openPageInstagram(driver)
+    elif types == 'F' or types == 'f': openPageFacebook(driver)
+    else : 
+        print("Wrong input")
+        quit_all(driver)
     Login()
     OpenMessage()
     textArea = None
     if types == 'W' or types == 'w': textArea = findTheFieldWhatsapp(driver)
-    if types == 'I' or types == 'i': textArea = findTheFieldInstagram(driver)
+    elif types == 'I' or types == 'i': textArea = findTheFieldInstagram(driver)
+    elif types == 'F' or types == 'f': textArea = findTheFieldFacebook(driver)
+    else : 
+        print("Wrong input")
+        quit_all(driver)
     if textArea == None: 
         print("Something went wrong. Try Again")
-        exit(0)
+        quit_all(driver)
 
     for i in listObj:
         textArea.send_keys(i)
         textArea.send_keys("\n")
         time.sleep(1)
     print("Spam ended")
+    quit_all(driver)
+
+def quit_all(driver):
     driver.close()
+    exit(0)
 
 print('Enter the text you want to spam. When finished press Enter and then type "3TDone" without quotes and press Enter')
 stuff = str("")
