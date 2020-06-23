@@ -1,6 +1,8 @@
 # Spam-Anyone
 A tool where you can spam anyone with any text on chat.
 
+*Feature for Facebook is still pending*
+
 Requirements-
 Windows: Chrome version 84, python3
 Linux: Firefox, python3
