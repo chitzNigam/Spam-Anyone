@@ -1,9 +1,14 @@
 from selenium import webdriver
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 import time
+import platform
+
+opr_sys = platform.system()
 
 def initWebdriver():
-    driver = webdriver.Firefox("/Resource")
+    driver = None
+    if opr_sys == 'Windows': driver = webdriver.Firefox(executable_path=r"./Resource/chromedriver.exe")
+    if opr_sys == 'Linux': driver = webdriver.Firefox(executable_path=r"./Resource/geckodriver")
     driver.maximize_window()
     driver.switch_to_default_content
     time.sleep(2)
