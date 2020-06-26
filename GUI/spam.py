@@ -7,8 +7,8 @@ opr_sys = platform.system()
 
 def initWebdriver():
     driver = None
-    if opr_sys == 'Windows': driver = webdriver.Chrome(executable_path=r"./Resource/chromedriver.exe")
-    if opr_sys == 'Linux': driver = webdriver.Firefox(executable_path=r"./Resource/geckodriver")
+    if opr_sys == 'Windows': driver = webdriver.Chrome(executable_path=r"../Resource/chromedriver.exe")
+    if opr_sys == 'Linux': driver = webdriver.Firefox(executable_path=r"../Resource/geckodriver")
     driver.maximize_window()
     driver.switch_to_default_content
     time.sleep(2)
@@ -122,14 +122,16 @@ def quit_all(driver):
     driver.close()
     exit(0)
 
-print('Enter the text you want to spam. When finished press Enter and then type "3TDone" without quotes and press Enter')
-stuff = str("")
-while True:
-    temp = str(input())
-    if temp == '3TDone' : break
-    stuff= stuff +" " +temp
-stuff_in_list =  stuff.split(sep = " ")
-print("\nEnter the website you want to spam on \nW for Whatsapp, I for Instagram, F for facebook")
-typeSite = str(input())
+if __name__ == "__main__":
+        
+    print('Enter the text you want to spam. When finished press Enter and then type "3TDone" without quotes and press Enter')
+    stuff = str("")
+    while True:
+        temp = str(input())
+        if temp == '3TDone' : break
+        stuff= stuff +" " +temp
+    stuff_in_list =  stuff.split(sep = " ")
+    print("\nEnter the website you want to spam on \nW for Whatsapp, I for Instagram, F for facebook")
+    typeSite = str(input())
 
-automateSpam(stuff_in_list, typeSite[0])
+    automateSpam(stuff_in_list, typeSite[0])

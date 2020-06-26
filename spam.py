@@ -122,14 +122,15 @@ def quit_all(driver):
     driver.close()
     exit(0)
 
-print('Enter the text you want to spam. When finished press Enter and then type "3TDone" without quotes and press Enter')
-stuff = str("")
-while True:
-    temp = str(input())
-    if temp == '3TDone' : break
-    stuff= stuff +" " +temp
-stuff_in_list =  stuff.split(sep = " ")
-print("\nEnter the website you want to spam on \nW for Whatsapp, I for Instagram, F for facebook")
-typeSite = str(input())
+if __name__ == "__main__":
+    print('Enter the text you want to spam. When finished press Enter and then type "3TDone" without quotes and press Enter')
+    stuff = str("")
+    while True:
+        temp = str(input())
+        if temp == '3TDone' : break
+        stuff= stuff +" " +temp
+    stuff_in_list =  stuff.split(sep = " ")
+    print("\nEnter the website you want to spam on \nW for Whatsapp, I for Instagram, F for facebook")
+    typeSite = str(input())
 
-automateSpam(stuff_in_list, typeSite[0])
+    automateSpam(stuff_in_list, typeSite[0])

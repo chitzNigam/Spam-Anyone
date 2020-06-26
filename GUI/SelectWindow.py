@@ -7,16 +7,16 @@ from WhatsappLogin import WhatsappLogin
 driver = None
 
 def for_instagram():
+    root.destroy()
     InstagramLogin(driver)
-    root.quit()
 
 def for_facebook():
+    root.destroy()
     FacebookLogin(driver)
-    root.quit()
 
 def for_whatsapp():
+    root.destroy()
     WhatsappLogin(driver)
-    root.quit()
 
 if __name__ == "__main__":
     driver = spam.initWebdriver()

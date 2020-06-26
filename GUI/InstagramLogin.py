@@ -50,7 +50,7 @@ class InstagramLogin:
         ret = self.login(self.TEntry1.get(),self.TEntry2.get())
         if ret: 
             messagebox.showinfo("", "Login Successful")
-            self.top.quit()
+            self.top.destroy()
             Instagram.Instagram(self.driver)
         else : messagebox.showinfo("","Login unsuccessful. Try again!")
 
@@ -80,7 +80,7 @@ class InstagramLogin:
         self.top.configure(background="#fdfdfd")
 
         self.Username = tk.Label(self.top)
-        self.Username.place(relx=0.024, rely=0.289, height=15, width=199)
+        self.Username.place(relx=0.024, rely=0.289, height=20, width=199)
         self.Username.configure(activebackground="#ffffff")
         self.Username.configure(background="#fdfdfd")
         self.Username.configure(borderwidth="10")
@@ -88,13 +88,13 @@ class InstagramLogin:
         self.Username.configure(text='''Enter your Username :''')
 
         self.Label1 = tk.Label(self.top)
-        self.Label1.place(relx=0.024, rely=0.469, height=16, width=194)
+        self.Label1.place(relx=0.024, rely=0.469, height=20, width=194)
         self.Label1.configure(background="#fdfdfd")
         self.Label1.configure(borderwidth="10")
         self.Label1.configure(text='''Enter your Password :''')
 
         self.TEntry1 = ttk.Entry(self.top)
-        self.TEntry1.place(relx=0.5, rely=0.289, relheight=0.069, relwidth=0.438)
+        self.TEntry1.place(relx=0.5, rely=0.289, relheight=0.10, relwidth=0.438)
 
         username = self.TEntry1.register(self.top)
         self.TEntry1.configure(invalidcommand=(username))
@@ -102,7 +102,7 @@ class InstagramLogin:
         self.TEntry1.configure(cursor="xterm")
 
         self.TEntry2 = ttk.Entry(self.top,show="*")
-        self.TEntry2.place(relx=0.495, rely=0.469, relheight=0.069
+        self.TEntry2.place(relx=0.495, rely=0.469, relheight=0.10
                 , relwidth=0.438)
         password = self.TEntry2.register(self.top)
         self.TEntry2.configure(invalidcommand=(password))
