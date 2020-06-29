@@ -24,3 +24,11 @@ It is a command line tool.
 -Navigate to the chat you want to spam on.
 
 -Your automated spam will now start.
+
+To use the GUI, 
+
+-run the SelectWindow.py script.
+
+-Follow the instructions and fill the desired details.
+
+*Feature for Only Instagram has been added in the GUI*
